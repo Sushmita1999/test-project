@@ -22,11 +22,7 @@ jobs:
 
     - name: Configure JFrog CLI
       run: |
-        jfrog config add my-artifactory \
-          --url "https://hts2.jfrog.io/" \  
-          --user "sss" \                      
-          --password "Test@123" \       
-          --interactive=false
+        jfrog config add my-artifactory --url "https://hts2.jfrog.io/" --user "sss" --password "Test@123" --interactive=false
 
     - name: Pull Docker image
       run: |
