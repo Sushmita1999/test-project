@@ -33,5 +33,5 @@ jobs:
     - name: Perform JFrog Docker scan
       run: |
         jfrog docker scan nginx:latest \
-          --props "scan=true" \
-          --details=true
+          --watches "failbuild" \
+          
