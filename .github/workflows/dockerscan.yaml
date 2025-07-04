@@ -16,7 +16,9 @@ jobs:
     - name: Setup JFrog CLI
       uses: jfrog/setup-jfrog-cli@v1
       with:
-        version: 'latest'
+        version: '2.77.0'
+
+    
 
     - name: Configure JFrog CLI
       run: |
