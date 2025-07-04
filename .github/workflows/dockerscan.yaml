@@ -1,0 +1,37 @@
+name: JFrog Docker Scan Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  jfrog-docker-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Setup JFrog CLI
+      uses: jfrog/setup-jfrog-cli@v1
+      with:
+        version: 'latest'
+
+    - name: Configure JFrog CLI
+      run: |
+        jfrog config add my-artifactory \
+          --url "https://hts2.jfrog.io/" \  
+          --user "sss" \                      
+          --password "Test@123" \       
+          --interactive=false
+
+    - name: Pull Docker image
+      run: |
+        docker pull nginx:latest
+
+    - name: Perform JFrog Docker scan
+      run: |
+        jfrog docker scan nginx:latest \
+          --props "scan=true" \
+          --details=true
