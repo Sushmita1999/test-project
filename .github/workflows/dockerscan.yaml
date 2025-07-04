@@ -32,5 +32,5 @@ jobs:
       run: |
         jfrog docker scan nginx:latest \
         --watches "failbuild" \
-        --fail "false"
+        --fail=false
           
