@@ -30,7 +30,7 @@ jobs:
 
     - name: Perform JFrog Docker scan
       run: |
-        jf docker scan nginx:latest \
+        jfrog docker scan nginx:latest \
         --watches "failbuild" \
         --fail "false"
           
