@@ -27,10 +27,9 @@ jobs:
     - name: Pull Docker image
       run: |
         docker pull nginx:latest
-        docker tag nginx:latest hts2-sss-docker-local.jfrog.io/nginx:latest
-        jfrog rt dp hts2-sss-docker-local.jfrog.io/nginx:latest sss-docker-local --build-name=check --build-number=2
-        jfrog rt build-publish check 2
-        jfrog bs check 2
+        jfrog rt dp nginx:latest sss-docker-local --build-name=check --build-number=3
+        jfrog rt build-publish check 3
+        jfrog bs check 3
 
     # - name: Perform JFrog Docker scan
     #   run: |
